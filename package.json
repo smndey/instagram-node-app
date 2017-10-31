@@ -1,0 +1,18 @@
+{
+  "name": "instagram-node-app",
+  "version": "1.0.0",
+  "description": "Node app to list instagram images.",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/smndey/instagram-node-app"
+  },
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "instagram-node": "^0.5.8",
+    "mongoose": "latest"
+  },
+  "author": "Somenath Dey",
+  "license": ""
+}
