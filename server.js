@@ -1,17 +1,22 @@
-
-var express = require('express');
-var app = express();
-var ig = require('instagram-node').instagram();
+const util = require('util');
+const express = require('express');
+const app = express();
+const ig = require('instagram-node').instagram();
 
 // Serve static files.
 app.use(express.static(__dirname + '/public'));
+
+ig.use({access_token: 'Your token goes here'});
 
 // Set the view engine.
 app.set('view engine', 'ejs');
 
 // Homepage route.
 app.get('/', function(req, res) {
-  res.render('index');
+  ig.user_self_media_recent([], function(err, medias, pagination, remaining, limit) {
+    res.render('index', {images:medias});
+  });
+  
 });
 
 const PORT = process.env.PORT || 8080;
